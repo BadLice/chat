@@ -107,6 +107,9 @@ int main(int argc, char const *argv[])
 			if(!strcmp(valid,"\\USRNM_VLD"))
 				validate = 1;
 		}
+
+		if(!validate)
+			printf("Username already used or invalid.\n");
 	
 	} while(!validate);
 	

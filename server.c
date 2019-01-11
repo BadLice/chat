@@ -20,7 +20,7 @@ typedef struct
 {
 	int valid;//0 no, 1 yes
 	SOCKET socket;
-	char username[32];
+	char username[33];
 } CLIENT;
 
 typedef struct
@@ -92,7 +92,7 @@ void* updateClient(void* arg)
 
 			if(strlen(args->clients[args->currentIndex].username)==0)
 			{
-				if(strlen(msg)==0 || isUsed(msg,args->clients))
+				if(strlen(msg)<=0 || strlen(msg)>32  || isUsed(msg,args->clients))
 				{
 					printf("Invalid username from a new connection, asking again...\n");
 					char sz[30] = "\\USRNM_N_VLD";//username not valid
